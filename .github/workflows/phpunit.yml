@@ -1,4 +1,4 @@
-name: Run PHPUnit tests with coverage
+name: Run PHPUnit tests
 
 on:
   push:
@@ -24,11 +24,5 @@ jobs:
       - name: Install dependencies
         run: composer install
 
-      - name: Run PHPUnit with coverage
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage-clover.xml
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: coverage-clover.xml
+      - name: Run tests
+        run: ./vendor/bin/phpunit --coverage-text --colors=always
