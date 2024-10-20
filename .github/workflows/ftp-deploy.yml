@@ -1,0 +1,26 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          ftp-server: ftp://${{ secrets.FTP_HOST }}:21
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./ # On copie tout le contenu du répertoire racine du projet
+          server-dir: /www/server_dis # Le répertoire distant sur le serveur
+          exclude: |
+            **/.git/**, 
+            **/vendor/**, 
+            **/tests/**
