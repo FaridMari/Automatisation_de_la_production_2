@@ -23,17 +23,18 @@ use PDO;
 class Configuration
 {
     /**
-     * parsed configuration
-     *
-     * @var array
-     */
-    private $_configuration;
+ * parsed configuration
+ *
+ * @var array<string, mixed>
+ */
+private $_configuration;
+
 
     /**
-     * default configuration
-     *
-     * @var array
-     */
+ * default configuration
+ *
+ * @var array<string, mixed>
+ */
     private static $_defaults = array(
         'main' => array(
             'name'                     => 'PrivateBin',
