@@ -8,6 +8,11 @@ class PurgeLimiterTest extends TestCase
 {
     private $_path;
 
+    /**
+ * Set up the test environment.
+ * 
+ * @return void
+ */
     public function setUp(): void
     {
         /* Setup Routine */
@@ -20,6 +25,11 @@ class PurgeLimiterTest extends TestCase
         );
     }
 
+    /**
+ * Tear down the test environment.
+ * 
+ * @return void
+ */
     public function tearDown(): void
     {
         /* Tear Down Routine */
